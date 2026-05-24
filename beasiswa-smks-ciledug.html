@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beasiswa SMKS Ciledug Al Musaddadiyah — Program CALM</title>
+<meta name="description" content="Program beasiswa SMKS Ciledug Al Musaddadiyah Garut — 3 jalur beasiswa (Akademik, Atlet, CALM Peduli) dengan pembebasan SPP hingga 100% dan Program SB3."/>
+<meta name="robots" content="index,follow"/>
+<meta property="og:title" content="Program Beasiswa SMKS Ciledug Al Musaddadiyah"/>
+<meta property="og:description" content="Raih beasiswa pendidikanmu — jalur Akademik, Atlet Berprestasi, dan CALM Peduli. Daftar sekarang!"/>
+<meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
@@ -31,7 +36,7 @@
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
   body {
     font-family: var(--font-body);
@@ -116,6 +121,66 @@
 
   .nav-links a:hover { color: var(--gold-bright); }
 
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    width: 36px; height: 36px;
+    flex-shrink: 0;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px; height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: transform .3s, opacity .3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── MOBILE DRAWER ── */
+  .nav-drawer {
+    display: none;
+    position: fixed;
+    top: 68px; left: 0; right: 0;
+    z-index: 99;
+    background: rgba(0,40,120,0.98);
+    backdrop-filter: blur(18px);
+    padding: 12px 6vw 20px;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-drawer.open { display: flex; }
+  .nav-drawer a {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    transition: all .2s;
+    letter-spacing: .04em;
+  }
+  .nav-drawer a:hover { color: var(--gold-bright); background: rgba(255,255,255,.05); }
+  .nav-drawer .nav-cta {
+    margin-top: 8px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+    color: var(--deep-blue) !important;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 100px;
+    padding: 10px 14px;
+  }
+
   .nav-cta {
     background: linear-gradient(135deg, var(--gold), var(--gold-bright));
     color: var(--deep-blue) !important;
@@ -134,13 +199,14 @@
   /* ── HERO ── */
   .hero {
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 560px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 8rem 6vw 5rem;
+    padding: 6rem 6vw 5rem;
     overflow: hidden;
   }
 
@@ -1091,8 +1157,8 @@
 
   .reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(24px);
+    transition: opacity 0.6s cubic-bezier(.22,1,.36,1), transform 0.6s cubic-bezier(.22,1,.36,1);
   }
 
   .reveal.visible {
@@ -1100,9 +1166,9 @@
     transform: translateY(0);
   }
 
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-1 { transition-delay: 0.08s; }
+  .reveal-delay-2 { transition-delay: 0.16s; }
+  .reveal-delay-3 { transition-delay: 0.24s; }
 
   /* ── STAT BAR ── */
   .stat-bar {
@@ -1148,8 +1214,9 @@
   @media (max-width: 900px) {
     nav { padding: 1rem 4vw; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
 
-    .hero { padding: 7rem 5vw 4rem; min-height: 90vh; }
+    .hero { padding: 5rem 5vw 3rem; height: auto; min-height: 90vh; }
 
     .cards-grid { grid-template-columns: 1fr; gap: 1.2rem; }
     .schol-card { padding: 2rem 1.5rem; }
@@ -1201,8 +1268,9 @@
 
     /* Hero */
     .hero {
-      padding: 6.5rem 5vw 3.5rem;
-      min-height: 85vh;
+      padding: 5rem 5vw 3rem;
+      height: auto;
+      min-height: 80vh;
       text-align: center;
     }
     .hero h1 {
@@ -1377,9 +1445,7 @@
 <nav>
   <a href="#" class="nav-brand">
     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiD-8YPFS6i86EyZZNDUhwuam5ro_mtc9So2muvB7EDWz1Zp6rarLubvVS3vfVVoto_S6SaHlIPPnmNaddUugGUztWkJYhDwwT8CU1BcUuq9TNyxnHKa6B44iDBx6LjR1-z3r7_C34jviaWeOYgk4bNJHsziPV4KR5mQjY69HVhyphenhyphenR3STD4xp-b46x_HeR4/s320/An8Em6pLCtVUNFZTK-rgdQG9pKiDxE1AR7m_1QO_5slD3C5qFXYq7S9suI1ztpViB_aUnbOGE2-Y71AU9SF3GjQzZ09xbw5aat-JT_7ptJ4VcfdGeJ73DWbHD9IDtVHa_16MjCj09HJ4eGBvZMo-removebg-preview.png" alt="Logo CALM" style="height: 42px; width: auto;">
-    <div class="nav-nav-group">
-      <div class="nav-name">SMKS Ciledug<br><span>Al Musaddadiyah</span></div>
-    </div>
+    <div class="nav-name">SMKS Ciledug<br><span>Al Musaddadiyah</span></div>
   </a>
   <ul class="nav-links">
     <li><a href="#beasiswa">Program Beasiswa</a></li>
@@ -1387,7 +1453,16 @@
     <li><a href="#syarat">Syarat & Ketentuan</a></li>
     <li><a href="#daftar" class="nav-cta">Daftar Sekarang</a></li>
   </ul>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Buka menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-drawer" id="nav-drawer">
+  <a href="#beasiswa">Program Beasiswa</a>
+  <a href="#sb3">Program SB3</a>
+  <a href="#syarat">Syarat & Ketentuan</a>
+  <a href="#daftar" class="nav-cta">Daftar Sekarang</a>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="beranda">
@@ -1624,7 +1699,7 @@
     <div class="timeline-step">
       <div class="step-label">Langkah 4</div>
       <div class="step-title">Seleksi Administrasi & Tes</div>
-      <div class="step-desc">Tim seleksi akan meverifikasi berkas, dilanjutkan dengan tes tertulis atau tes kemampuan sesuai jalur yang dipilih.</div>
+      <div class="step-desc">Tim seleksi akan memverifikasi berkas, dilanjutkan dengan tes tertulis atau tes kemampuan sesuai jalur yang dipilih.</div>
     </div>
     <div class="timeline-step">
       <div class="step-label">Langkah 5</div>
@@ -1685,7 +1760,7 @@
       <li>Sertifikat penghargaan beasiswa bergengsi dari SMKS Ciledug Al Musaddadiyah</li>
     </ul>
     <div class="modal-note">⚠️ Beasiswa akan dievaluasi setiap semester. Penerima wajib mempertahankan peringkat 5 besar dan nilai rata-rata minimal 85.</div>
-    <button class="btn-primary modal-cta" onclick="closeModal('akademik'); document.getElementById('daftar').scrollIntoView({behavior:'smooth'})">Daftar Jalur Ini →</button>
+    <button class="btn-primary modal-cta" onclick="closeModal('akademik'); scrollToDaftar()">Daftar Jalur Ini →</button>
   </div>
 </div>
 
@@ -1713,7 +1788,7 @@
       <li>Pendampingan dan coaching akademik agar prestasi belajar tetap terjaga</li>
     </ul>
     <div class="modal-note">⚠️ Siswa penerima wajib melaporkan setiap keikutsertaan dalam kompetisi kepada pembina olahraga sekolah dan tidak boleh absen KBM tanpa izin resmi.</div>
-    <button class="btn-primary modal-cta" onclick="closeModal('atlet'); document.getElementById('daftar').scrollIntoView({behavior:'smooth'})">Daftar Jalur Ini →</button>
+    <button class="btn-primary modal-cta" onclick="closeModal('atlet'); scrollToDaftar()">Daftar Jalur Ini →</button>
   </div>
 </div>
 
@@ -1741,24 +1816,74 @@
       <li>Prioritas mendapatkan tempat di mes sekolah dengan program SB3</li>
     </ul>
     <div class="modal-note">💛 Beasiswa CALM Peduli adalah wujud nyata kepedulian kami. Kami berkomitmen mendampingi setiap penerima tidak hanya secara akademik, tetapi juga secara mental dan emosional selama bersekolah di SMKS CALM.</div>
-    <button class="btn-primary modal-cta" onclick="closeModal('peduli'); document.getElementById('daftar').scrollIntoView({behavior:'smooth'})">Daftar Jalur Ini →</button>
+    <button class="btn-primary modal-cta" onclick="closeModal('peduli'); scrollToDaftar()">Daftar Jalur Ini →</button>
   </div>
 </div>
 
 <script>
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
+  // ── Hamburger menu ──
+  const hamburger = document.getElementById('nav-hamburger');
+  const drawer = document.getElementById('nav-drawer');
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    hamburger.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
+  });
+  drawer.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      drawer.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ── Smooth scroll dengan offset nav ──
+  const navEl = document.querySelector('nav');
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (!id || id === '#') return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - navEl.offsetHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // ── Nav scroll shadow ──
+  window.addEventListener('scroll', () => {
+    navEl.style.boxShadow = window.scrollY > 30 ? '0 4px 32px rgba(0,30,100,.6)' : '';
+  }, { passive: true });
+
+  // ── Scroll reveal — stagger per section ──
+  const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        observer.unobserve(e.target);
+        revealObserver.unobserve(e.target);
       }
     });
-  }, { threshold: 0.12 });
-  revealEls.forEach(el => observer.observe(el));
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  // Modal
+  // Elemen dengan reveal-delay sudah punya delay dari CSS, cukup observe
+  document.querySelectorAll('.reveal').forEach(el => {
+    // Hanya set delay otomatis jika tidak punya explicit delay class
+    if (!el.classList.contains('reveal-delay-1') &&
+        !el.classList.contains('reveal-delay-2') &&
+        !el.classList.contains('reveal-delay-3')) {
+      // Cari index dalam parent section untuk stagger
+      const parent = el.closest('section, .scholarships, .sb3-section, .terms-section, .timeline-section, .cta-section, .stat-bar');
+      if (parent) {
+        const siblings = Array.from(parent.querySelectorAll('.reveal:not([class*="reveal-delay"])'));
+        const idx = siblings.indexOf(el);
+        if (idx > 0) el.style.transitionDelay = Math.min(idx, 3) * 0.08 + 's';
+      }
+    }
+    revealObserver.observe(el);
+  });
+
+  // ── Modal ──
   function openModal(type) {
     document.getElementById('modal-' + type).classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -1767,6 +1892,14 @@
   function closeModal(type) {
     document.getElementById('modal-' + type).classList.remove('active');
     document.body.style.overflow = '';
+  }
+
+  // Modal CTA scroll dengan nav offset
+  function scrollToDaftar() {
+    const target = document.getElementById('daftar');
+    if (!target) return;
+    const top = target.getBoundingClientRect().top + window.scrollY - navEl.offsetHeight;
+    window.scrollTo({ top, behavior: 'smooth' });
   }
 
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
@@ -1778,12 +1911,10 @@
     });
   });
 
-  // Escape key
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') {
       document.querySelectorAll('.modal-overlay.active').forEach(m => {
-        const id = m.id.replace('modal-', '');
-        closeModal(id);
+        closeModal(m.id.replace('modal-', ''));
       });
     }
   });

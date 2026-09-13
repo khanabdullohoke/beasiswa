@@ -382,7 +382,7 @@
   .section-header {
     text-align: center;
     max-width: 680px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem;
     padding: 0 6vw;
   }
 
@@ -417,7 +417,7 @@
 
   /* ── SCHOLARSHIP CARDS ── */
   .scholarships {
-    padding: 6rem 6vw;
+    padding: 5rem 6vw 3rem;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -602,7 +602,7 @@
 
   /* ── SB3 SECTION ── */
   .sb3-section {
-    padding: 5rem 6vw 6rem;
+    padding: 2rem 6vw 5rem;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -744,7 +744,7 @@
 
   /* ── SYARAT UMUM ── */
   .terms-section {
-    padding: 5rem 6vw;
+    padding: 3rem 6vw;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -803,7 +803,7 @@
 
   /* ── TIMELINE ── */
   .timeline-section {
-    padding: 5rem 6vw;
+    padding: 3rem 6vw;
     max-width: 900px;
     margin: 0 auto;
     position: relative;
@@ -865,9 +865,87 @@
     line-height: 1.65;
   }
 
+  /* ── FAQ SECTION ── */
+  .faq-section {
+    padding: 3rem 6vw 4rem;
+    max-width: 880px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    margin-top: 3rem;
+  }
+
+  .faq-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border-blue);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .faq-item.open {
+    background: rgba(201,168,76,0.05);
+    border-color: var(--border);
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--gold-glow);
+    border: 1px solid var(--border);
+    color: var(--gold-bright);
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.3s;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .faq-item.open .faq-answer { max-height: 400px; }
+
+  .faq-answer-inner {
+    padding: 0 1.5rem 1.5rem;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
   /* ── CTA SECTION ── */
   .cta-section {
-    padding: 6rem 6vw 8rem;
+    padding: 3rem 6vw 6rem;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -1239,7 +1317,8 @@
     .sb3-section { padding: 3rem 5vw 4rem; }
     .terms-section { padding: 3.5rem 5vw; }
     .timeline-section { padding: 3.5rem 5vw; }
-    .cta-section { padding: 4rem 5vw 5rem; }
+    .faq-section { padding: 2.5rem 5vw 3.5rem; }
+    .cta-section { padding: 3rem 5vw 5rem; }
 
     footer {
       flex-direction: column;
@@ -1371,8 +1450,15 @@
     .step-title { font-size: 0.95rem; }
     .step-desc { font-size: 0.78rem; }
 
+    /* FAQ */
+    .faq-section { padding: 2rem 4vw 2.5rem; }
+    .faq-list { gap: 0.7rem; margin-top: 1.75rem; }
+    .faq-question { padding: 1rem 1.1rem; font-size: 0.85rem; gap: 0.75rem; }
+    .faq-icon { width: 26px; height: 26px; font-size: 0.9rem; }
+    .faq-answer-inner { padding: 0 1.1rem 1.1rem; font-size: 0.8rem; }
+
     /* CTA */
-    .cta-section { padding: 3rem 4vw 4rem; }
+    .cta-section { padding: 2rem 4vw 4rem; }
     .cta-title { font-size: 1.75rem; }
     .cta-sub { font-size: 0.85rem; margin-bottom: 1.75rem; }
     .cta-buttons {
@@ -1451,6 +1537,7 @@
     <li><a href="#beasiswa">Program Beasiswa</a></li>
     <li><a href="#sb3">Program SB3</a></li>
     <li><a href="#syarat">Syarat & Ketentuan</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#daftar" class="nav-cta">Daftar Sekarang</a></li>
   </ul>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Buka menu" aria-expanded="false">
@@ -1461,6 +1548,7 @@
   <a href="#beasiswa">Program Beasiswa</a>
   <a href="#sb3">Program SB3</a>
   <a href="#syarat">Syarat & Ketentuan</a>
+  <a href="#faq">FAQ</a>
   <a href="#daftar" class="nav-cta">Daftar Sekarang</a>
 </div>
 
@@ -1714,6 +1802,71 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-header reveal">
+    <div class="section-kicker">✦ Pertanyaan Umum</div>
+    <h2 class="section-title">Frequently Asked <span class="accent">Questions</span></h2>
+    <p class="section-desc">Masih ada pertanyaan seputar Program Beasiswa CALM? Berikut jawaban untuk pertanyaan yang paling sering diajukan.</p>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Apakah siswa bisa mendaftar lebih dari satu jalur beasiswa sekaligus?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Tidak. Setiap calon penerima hanya dapat memilih dan mendaftar pada satu jalur beasiswa (Akademik, Atlet, atau CALM Peduli) yang paling sesuai dengan profil dan prestasinya. Pilih jalur yang paling kuat mencerminkan pencapaianmu.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Apakah ada biaya pendaftaran untuk mengikuti seleksi beasiswa?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Seluruh proses seleksi Program Beasiswa CALM tidak dipungut biaya apa pun. Jika ditemukan pihak yang meminta pembayaran dengan mengatasnamakan program ini, segera hubungi pihak sekolah untuk konfirmasi.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Berapa lama proses seleksi hingga pengumuman kelulusan?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Secara umum, proses seleksi berlangsung dalam beberapa minggu sejak berkas dinyatakan lengkap — meliputi verifikasi administrasi, tes/penilaian sesuai jalur, hingga sesi wawancara. Jadwal pasti akan diinformasikan langsung oleh pihak sekretariat kepada setiap pendaftar.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Bagaimana jika saya tidak lolos seleksi beasiswa?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Siswa yang belum lolos seleksi beasiswa tetap dapat mendaftar sebagai siswa reguler di SMKS Ciledug Al Musaddadiyah tanpa pembebasan SPP. Kamu juga tetap berkesempatan mengajukan kembali pada periode penerimaan berikutnya jika memenuhi syarat.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Apakah beasiswa bisa dicabut di tengah masa studi?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">Ya. Beasiswa dievaluasi secara berkala setiap semester. Status beasiswa dapat dicabut apabila penerima tidak mempertahankan standar prestasi yang dipersyaratkan pada jalurnya atau melanggar tata tertib sekolah secara berat.</div>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" type="button" aria-expanded="false">
+        <span>Apa itu Program SB3 dan siapa saja yang bisa mengikutinya?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <div class="faq-answer-inner">SB3 (Siswa Berdaya, Berkarya & Berdampak) adalah program pembentukan karakter dan kepemimpinan bagi penerima beasiswa yang tinggal di mes sekolah. Program ini terbuka bagi penerima beasiswa dari ketiga jalur yang memenuhi kriteria dan berminat tinggal di mes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-section" id="daftar">
   <div class="cta-box reveal">
@@ -1917,6 +2070,22 @@
         closeModal(m.id.replace('modal-', ''));
       });
     }
+  });
+
+  // ── FAQ accordion ──
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-question');
+    btn.addEventListener('click', () => {
+      const willOpen = !item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        if (openItem !== item) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        }
+      });
+      item.classList.toggle('open', willOpen);
+      btn.setAttribute('aria-expanded', String(willOpen));
+    });
   });
 </script>
 </body>

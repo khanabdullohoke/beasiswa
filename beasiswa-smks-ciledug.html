@@ -1523,6 +1523,7 @@
     .sb3-card { padding: 1.5rem 1rem; }
   }
 </style>
+<noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
 </head>
 <body>
 
@@ -2009,6 +2010,7 @@
   }, { passive: true });
 
   // ── Scroll reveal — stagger per section ──
+  const revealEls = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -2019,7 +2021,7 @@
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   // Elemen dengan reveal-delay sudah punya delay dari CSS, cukup observe
-  document.querySelectorAll('.reveal').forEach(el => {
+  revealEls.forEach(el => {
     // Hanya set delay otomatis jika tidak punya explicit delay class
     if (!el.classList.contains('reveal-delay-1') &&
         !el.classList.contains('reveal-delay-2') &&
@@ -2033,6 +2035,15 @@
       }
     }
     revealObserver.observe(el);
+  });
+
+  // Fallback: pastikan konten tetap tampil meski IntersectionObserver
+  // tidak sempat terpicu (mis. saat halaman di-screenshot/export secara
+  // instan tanpa scroll asli, atau pada perangkat/browser yang lambat).
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      revealEls.forEach(el => el.classList.add('visible'));
+    }, 1200);
   });
 
   // ── Modal ──

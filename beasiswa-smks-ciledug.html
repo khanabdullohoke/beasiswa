@@ -199,8 +199,7 @@
   /* ── HERO ── */
   .hero {
     position: relative;
-    height: 100vh;
-    min-height: 560px;
+    height: clamp(560px, 100vh, 880px);
     display: flex;
     flex-direction: column;
     align-items: center;
